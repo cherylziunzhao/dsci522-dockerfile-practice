@@ -1,5 +1,9 @@
 FROM quay.io/jupyter/minimal-notebook:afe30f0c9ad8
 
+# Install mamba
+RUN conda install -c conda-forge mamba -y \
+    && mamba clean --all -y -f
+
 # Copy the conda lock file
 COPY conda-linux-64.lock /tmp/conda-linux-64.lock
 
